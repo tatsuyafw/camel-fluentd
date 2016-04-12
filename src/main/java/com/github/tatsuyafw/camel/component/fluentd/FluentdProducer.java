@@ -14,32 +14,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.tatsuyafw.camel.fluentd;
+package com.github.tatsuyafw.camel.component.fluentd;
 
-import org.apache.camel.Consumer;
-import org.apache.camel.Processor;
-import org.apache.camel.Producer;
-import org.apache.camel.RuntimeCamelException;
-import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.camel.Exchange;
+import org.apache.camel.impl.DefaultProducer;
+import org.fluentd.logger.FluentLogger;
+
+import java.util.Map;
 
 // [WIP]
-public class FluentdEndpoint extends DefaultEndpoint {
-    public FluentdEndpoint(String uri) {
+public class FluentdProducer extends DefaultProducer {
+    private final FluentLogger logger;
 
+
+    public FluentdProducer(FluentdEndpoint endpoint, FluentLogger logger) {
+        super(endpoint);
+        this.logger = logger;
     }
 
     @Override
-    public Producer createProducer() throws Exception {
-        return new FluentdProducer(this);
-    }
-
-    @Override
-    public Consumer createConsumer(Processor processor) throws Exception {
-        throw new UnsupportedOperationException("Cannot consume from a FluentdEndpoint " + getEndpointUri());
-    }
-
-    @Override
-    public boolean isSingleton() {
-        return true;
+    public void process(Exchange exchange) throws Exception {
+        @SuppressWarnings("unchecked")
+        Map<String, Object> body = exchange.getIn().getBody(Map.class);
+        logger.log("wip_tag", body);
     }
 }

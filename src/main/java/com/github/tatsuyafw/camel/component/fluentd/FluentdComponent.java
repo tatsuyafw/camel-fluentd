@@ -14,21 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.tatsuyafw.camel.fluentd;
+package com.github.tatsuyafw.camel.component.fluentd;
 
 import org.apache.camel.Endpoint;
-import org.apache.camel.Exchange;
-import org.apache.camel.impl.DefaultProducer;
+import org.apache.camel.impl.UriEndpointComponent;
 
+import java.util.Map;
 
 // [WIP]
-public class FluentdProducer extends DefaultProducer {
-    public FluentdProducer(Endpoint endpoint) {
-        super(endpoint);
+public class FluentdComponent extends UriEndpointComponent {
+    FluentdComponent() {
+        super(FluentdEndpoint.class);
     }
 
     @Override
-    public void process(Exchange exchange) throws Exception {
-
+    protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
+        return null;
     }
 }
