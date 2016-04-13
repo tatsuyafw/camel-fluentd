@@ -20,12 +20,24 @@ import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
 import org.apache.camel.impl.DefaultEndpoint;
+import org.apache.camel.spi.Metadata;
+import org.apache.camel.spi.UriEndpoint;
+import org.apache.camel.spi.UriPath;
 import org.fluentd.logger.FluentLogger;
 
-// [WIP]
+/**
+ *  The fluentd component is used for interacting with Fluentd server.
+ */
+@UriEndpoint(scheme = "fluentd", title = "Fluentd", syntax = "fluentd:hostname:port/tag", producerOnly = true, label = "monitoring")
 public class FluentdEndpoint extends DefaultEndpoint {
-    // TODO: supports hostname and port
+
+    public static final int DEFAULT_PORT = 24224;
     private final FluentLogger logger = FluentLogger.getLogger("log");
+
+    @UriPath @Metadata(required = "true")
+    private String hostname;
+    @UriPath(defaultValue = "" + DEFAULT_PORT)
+    private int port;
 
     public FluentdEndpoint(String endpointUri) {
 
