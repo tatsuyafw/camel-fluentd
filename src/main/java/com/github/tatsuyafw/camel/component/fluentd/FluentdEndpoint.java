@@ -39,8 +39,8 @@ public class FluentdEndpoint extends DefaultEndpoint {
     @UriPath(defaultValue = "" + DEFAULT_PORT)
     private int port;
 
-    public FluentdEndpoint(String endpointUri) {
-
+    public FluentdEndpoint(String endpointUri, FluentdComponent component) {
+        super(endpointUri, component);
     }
 
     @Override
