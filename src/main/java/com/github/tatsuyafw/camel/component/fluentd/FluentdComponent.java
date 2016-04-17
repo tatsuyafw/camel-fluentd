@@ -23,7 +23,7 @@ import java.util.Map;
 
 // [WIP]
 public class FluentdComponent extends UriEndpointComponent {
-    FluentdComponent() {
+    public FluentdComponent() {
         super(FluentdEndpoint.class);
     }
 
