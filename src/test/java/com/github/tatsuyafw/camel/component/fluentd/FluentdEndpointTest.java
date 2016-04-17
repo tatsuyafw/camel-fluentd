@@ -19,9 +19,18 @@ package com.github.tatsuyafw.camel.component.fluentd;
 
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
+
+import org.apache.camel.Endpoint;
+import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
-public class FluentdEndpointTest {
+public class FluentdEndpointTest extends CamelTestSupport {
+
+    @Test
+    public void testDefaults() {
+        Endpoint endpoint = context.getEndpoint("fluentd:hostname:port/tag");
+        assertNotNull(endpoint);
+    }
 
     // TODO
     @Test

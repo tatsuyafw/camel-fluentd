@@ -23,12 +23,13 @@ import java.util.Map;
 
 // [WIP]
 public class FluentdComponent extends UriEndpointComponent {
-    FluentdComponent() {
+    public FluentdComponent() {
         super(FluentdEndpoint.class);
     }
 
     @Override
     protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
-        return null;
+        Endpoint endpoint = new FluentdEndpoint(uri, this);
+        return endpoint;
     }
 }
