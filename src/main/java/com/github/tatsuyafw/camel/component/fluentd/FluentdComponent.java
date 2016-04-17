@@ -16,6 +16,7 @@
  */
 package com.github.tatsuyafw.camel.component.fluentd;
 
+import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
 import org.apache.camel.impl.UriEndpointComponent;
 
@@ -25,6 +26,10 @@ import java.util.Map;
 public class FluentdComponent extends UriEndpointComponent {
     public FluentdComponent() {
         super(FluentdEndpoint.class);
+    }
+
+    public FluentdComponent(CamelContext context) {
+        super(context, FluentdEndpoint.class);
     }
 
     @Override
