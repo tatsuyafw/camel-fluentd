@@ -64,8 +64,12 @@ public class FluentdEndpoint extends DefaultEndpoint {
         this.configuration = configuration;
     }
 
-    // TODO: not implemented yet.
     public synchronized FluentLogger getLogger() {
-        return null;
+        if (logger == null) {
+            String host = configuration.getHost();
+            int port = configuration.getPort();
+            logger = FluentLogger.getLogger(null, host, port);
+        }
+        return logger;
     }
 }
