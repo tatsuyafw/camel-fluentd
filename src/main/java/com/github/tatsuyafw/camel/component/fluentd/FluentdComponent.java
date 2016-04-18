@@ -19,22 +19,37 @@ package com.github.tatsuyafw.camel.component.fluentd;
 import org.apache.camel.CamelContext;
 import org.apache.camel.Endpoint;
 import org.apache.camel.impl.UriEndpointComponent;
+import org.apache.camel.util.ObjectHelper;
 
+import java.net.URI;
 import java.util.Map;
 
 // [WIP]
 public class FluentdComponent extends UriEndpointComponent {
+
+    private FluentdConfiguration configuration;
+
     public FluentdComponent() {
         super(FluentdEndpoint.class);
+        configuration = new FluentdConfiguration();
     }
 
     public FluentdComponent(CamelContext context) {
         super(context, FluentdEndpoint.class);
+        configuration = new FluentdConfiguration();
     }
 
     @Override
     protected Endpoint createEndpoint(String uri, String remaining, Map<String, Object> parameters) throws Exception {
+        URI url = new URI(uri);
+
+        ObjectHelper.notNull(configuration, "configuration");
+        FluentdConfiguration config = configuration.copy();
+        config.configure(url);
+        setProperties(config, parameters);
+
         Endpoint endpoint = new FluentdEndpoint(uri, this);
+        // TODO: Handling endpoint
         return endpoint;
     }
 }

@@ -22,6 +22,7 @@ import org.apache.camel.Producer;
 import org.apache.camel.impl.DefaultEndpoint;
 import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriEndpoint;
+import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriPath;
 import org.fluentd.logger.FluentLogger;
 
@@ -31,13 +32,10 @@ import org.fluentd.logger.FluentLogger;
 @UriEndpoint(scheme = "fluentd", title = "Fluentd", syntax = "fluentd:hostname:port/tag", producerOnly = true, label = "monitoring")
 public class FluentdEndpoint extends DefaultEndpoint {
 
-    public static final int DEFAULT_PORT = 24224;
     private final FluentLogger logger = FluentLogger.getLogger("log");
 
-    @UriPath @Metadata(required = "true")
-    private String hostname;
-    @UriPath(defaultValue = "" + DEFAULT_PORT)
-    private int port;
+    @UriParam
+    private FluentdConfiguration configuration;
 
     public FluentdEndpoint(String endpointUri, FluentdComponent component) {
         super(endpointUri, component);
