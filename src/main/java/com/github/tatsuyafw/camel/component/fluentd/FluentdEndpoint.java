@@ -32,7 +32,7 @@ import org.fluentd.logger.FluentLogger;
 @UriEndpoint(scheme = "fluentd", title = "Fluentd", syntax = "fluentd:hostname:port/tag", producerOnly = true, label = "monitoring")
 public class FluentdEndpoint extends DefaultEndpoint {
 
-    private final FluentLogger logger = FluentLogger.getLogger("log");
+    private FluentLogger logger;
 
     @UriParam
     private FluentdConfiguration configuration;
