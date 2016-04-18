@@ -55,4 +55,17 @@ public class FluentdEndpoint extends DefaultEndpoint {
     public boolean isSingleton() {
         return true;
     }
+
+    public FluentdConfiguration getConfiguration() {
+        return configuration;
+    }
+
+    public void setConfiguration(FluentdConfiguration configuration) {
+        this.configuration = configuration;
+    }
+
+    // TODO: not implemented yet.
+    public synchronized FluentLogger getLogger() {
+        return null;
+    }
 }

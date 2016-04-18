@@ -48,8 +48,10 @@ public class FluentdComponent extends UriEndpointComponent {
         config.configure(url);
         setProperties(config, parameters);
 
-        Endpoint endpoint = new FluentdEndpoint(uri, this);
-        // TODO: Handling endpoint
+        FluentdEndpoint endpoint = new FluentdEndpoint(uri, this);
+        endpoint.setConfiguration(config);
+        setProperties(endpoint, parameters);
+
         return endpoint;
     }
 }
