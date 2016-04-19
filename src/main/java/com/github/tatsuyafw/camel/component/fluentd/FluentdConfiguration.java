@@ -28,9 +28,12 @@ public class FluentdConfiguration implements Cloneable {
     public static final int DEFAULT_PORT = 24224;
 
     @UriPath @Metadata(required = "true")
-    private String hostname;
+    private String host;
     @UriPath @Metadata(defaultValue = "" + DEFAULT_PORT)
     private int port;
+    @UriPath @Metadata(defaultValue = "")
+    private String tagPrefix;
+
 
     /**
      * Returns a copy of this configuration
@@ -44,19 +47,19 @@ public class FluentdConfiguration implements Cloneable {
     }
 
     public void configure(URI uri) {
-        Optional<String> hostnameOpt = Optional.ofNullable(uri.getHost());
-        hostnameOpt.ifPresent(hostname -> setHost(hostname));
+        Optional<String> hostOpt = Optional.ofNullable(uri.getHost());
+        hostOpt.ifPresent(hostname -> setHost(host));
 
         Optional<Integer> portOpt = Optional.ofNullable(uri.getPort());
         portOpt.ifPresent(port -> setPort(port));
     }
 
     public String getHost() {
-        return this.hostname;
+        return this.host;
     }
 
-    public void setHost(String hostname) {
-        this.hostname = hostname;
+    public void setHost(String host) {
+        this.host = host;
     }
 
     public int getPort() {
@@ -69,6 +72,6 @@ public class FluentdConfiguration implements Cloneable {
 
     @Override
     public String toString() {
-        return "FluentdConfiguration[hostname=" + hostname + ":" + port + "]";
+        return "FluentdConfiguration[hostname=" + host + ":" + port + "]";
     }
 }
