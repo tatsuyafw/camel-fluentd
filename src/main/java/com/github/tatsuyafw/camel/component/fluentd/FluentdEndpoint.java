@@ -64,6 +64,22 @@ public class FluentdEndpoint extends DefaultEndpoint {
         this.configuration = configuration;
     }
 
+    public String getHost() {
+        return getConfiguration().getHost();
+    }
+
+    public void setHost(String host) {
+        getConfiguration().setHost(host);
+    }
+
+    public int getPort() {
+        return getConfiguration().getPort();
+    }
+
+    public void setPort(int port) {
+        getConfiguration().setPort(port);
+    }
+
     public synchronized FluentLogger getLogger() {
         if (logger == null) {
             String host = configuration.getHost();
