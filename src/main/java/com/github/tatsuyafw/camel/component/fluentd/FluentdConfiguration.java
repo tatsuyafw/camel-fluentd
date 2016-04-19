@@ -18,6 +18,7 @@ package com.github.tatsuyafw.camel.component.fluentd;
 
 import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.spi.Metadata;
+import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriPath;
 
 import java.net.URI;
@@ -31,13 +32,14 @@ public class FluentdConfiguration implements Cloneable {
     private String host;
     @UriPath @Metadata(defaultValue = "" + DEFAULT_PORT)
     private int port;
-    @UriPath @Metadata(defaultValue = "")
+    @UriPath @Metadata
     private String tagPrefix;
-
+    @UriParam
+    private String tag;
 
     /**
-     * Returns a copy of this configuration
-     */
+    * Returns a copy of this configuration
+    */
     public FluentdConfiguration copy() {
         try {
             return (FluentdConfiguration) clone();
@@ -48,10 +50,13 @@ public class FluentdConfiguration implements Cloneable {
 
     public void configure(URI uri) {
         Optional<String> hostOpt = Optional.ofNullable(uri.getHost());
-        hostOpt.ifPresent(hostname -> setHost(host));
+        hostOpt.ifPresent(host -> setHost(host));
 
         Optional<Integer> portOpt = Optional.ofNullable(uri.getPort());
         portOpt.ifPresent(port -> setPort(port));
+
+        Optional<String> tagPrefixOpt = Optional.ofNullable(uri.getPath());
+        tagPrefixOpt.ifPresent(tagPrefix -> setTagPrefix(tagPrefix));
     }
 
     public String getHost() {
@@ -70,8 +75,24 @@ public class FluentdConfiguration implements Cloneable {
         this.port = port;
     }
 
+    public String getTagPrefix() {
+        return this.tagPrefix;
+    }
+
+    public void setTagPrefix(String tagPrefix) {
+        this.tagPrefix = tagPrefix;
+    }
+
+    public String getTag() {
+        return this.tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
     @Override
     public String toString() {
-        return "FluentdConfiguration[hostname=" + host + ":" + port + "]";
+        return "FluentdConfiguration[host=" + host + ":" + port + "]";
     }
 }
