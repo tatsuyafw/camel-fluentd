@@ -40,4 +40,20 @@ public class FluentdConfigurationTest extends CamelTestSupport {
         assertThat(endpoint.getPort(), is(FluentdConfiguration.DEFAULT_PORT));
     }
 
+    @Test
+    public void testTagPrefix1() {
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname/tagPrefix", FluentdEndpoint.class);
+
+        assertNotNull(endpoint);
+        assertThat(endpoint.getTagPrefix(), is("tagPrefix"));
+    }
+
+    @Test
+    public void testTagPrefix2() {
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname/", FluentdEndpoint.class);
+
+        assertNotNull(endpoint);
+        assertThat(endpoint.getTagPrefix(), is(""));
+    }
+
 }

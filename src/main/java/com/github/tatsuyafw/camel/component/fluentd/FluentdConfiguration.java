@@ -55,8 +55,15 @@ public class FluentdConfiguration implements Cloneable {
         int port = uri.getPort() == -1 ? DEFAULT_PORT : uri.getPort();
         setPort(port);
 
-        Optional<String> tagPrefixOpt = Optional.ofNullable(uri.getPath());
-        tagPrefixOpt.ifPresent(tagPrefix -> setTagPrefix(tagPrefix));
+        String path = uri.getPath();
+        if ( path.isEmpty() || path.equals("/") ) {
+            setTagPrefix("");
+        } else {
+            // Delete leading '/' (slash)
+            String tagPrefix = path.substring(1);
+            System.out.println("[DEBUG]: tagPrefix: " + tagPrefix);
+            setTagPrefix(tagPrefix);
+        }
     }
 
     public String getHost() {
