@@ -32,10 +32,4 @@ public class FluentdEndpointTest extends CamelTestSupport {
         assertNotNull(endpoint);
     }
 
-    // TODO
-    @Test
-    public void assertTodo() throws Exception {
-        assertThat(true, is(true));
-    }
-
 }
