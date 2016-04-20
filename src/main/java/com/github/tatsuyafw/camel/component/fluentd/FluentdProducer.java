@@ -24,11 +24,13 @@ import java.util.Map;
 
 // [WIP]
 public class FluentdProducer extends DefaultProducer {
-    private final FluentLogger logger;
 
+    private final FluentLogger logger;
+    private final FluentdConfiguration configuration;
 
     public FluentdProducer(FluentdEndpoint endpoint, FluentLogger logger) {
         super(endpoint);
+        this.configuration = endpoint.getConfiguration();
         this.logger = logger;
     }
 
@@ -36,6 +38,18 @@ public class FluentdProducer extends DefaultProducer {
     public void process(Exchange exchange) throws Exception {
         @SuppressWarnings("unchecked")
         Map<String, Object> body = exchange.getIn().getBody(Map.class);
-        logger.log("wip_tag", body);
+
+        // TODO: check body
+
+        String concatTag = extractConcatTag();
+        logger.log(concatTag, body);
+    }
+
+    private String extractConcatTag() {
+        String tagPrefix = configuration.getTagPrefix();
+        String tag = configuration.getTag();
+
+        // TODO: deal with tagPrefix and tag
+        return "";
     }
 }
