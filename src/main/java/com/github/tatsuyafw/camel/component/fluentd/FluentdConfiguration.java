@@ -52,8 +52,8 @@ public class FluentdConfiguration implements Cloneable {
         Optional<String> hostOpt = Optional.ofNullable(uri.getHost());
         hostOpt.ifPresent(host -> setHost(host));
 
-        Optional<Integer> portOpt = Optional.ofNullable(uri.getPort());
-        portOpt.ifPresent(port -> setPort(port));
+        int port = uri.getPort() == -1 ? DEFAULT_PORT : uri.getPort();
+        setPort(port);
 
         Optional<String> tagPrefixOpt = Optional.ofNullable(uri.getPath());
         tagPrefixOpt.ifPresent(tagPrefix -> setTagPrefix(tagPrefix));

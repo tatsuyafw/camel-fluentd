@@ -32,4 +32,12 @@ public class FluentdConfigurationTest extends CamelTestSupport {
         assertThat(endpoint.getPort(), is(12345));
     }
 
+    @Test
+    public void defaultPortUsedWhenNotSpecified() {
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname", FluentdEndpoint.class);
+
+        assertNotNull(endpoint);
+        assertThat(endpoint.getPort(), is(FluentdConfiguration.DEFAULT_PORT));
+    }
+
 }
