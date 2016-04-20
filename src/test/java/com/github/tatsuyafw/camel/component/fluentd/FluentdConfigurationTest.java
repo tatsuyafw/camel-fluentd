@@ -25,7 +25,7 @@ public class FluentdConfigurationTest extends CamelTestSupport {
 
     @Test
     public void createEndpointWithMinimalConfiguration() {
-        FluentdEndpoint endpoint = (FluentdEndpoint) context.getEndpoint("fluentd:hostname:12345");
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:12345", FluentdEndpoint.class);
 
         assertNotNull(endpoint);
         assertThat(endpoint.getHost(), is("hostname"));
