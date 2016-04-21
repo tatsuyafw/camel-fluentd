@@ -41,15 +41,15 @@ public class FluentdProducer extends DefaultProducer {
 
         // TODO: check body
 
-        String concatTag = extractConcatTag();
-        logger.log(concatTag, body);
-    }
-
-    private String extractConcatTag() {
-        String tagPrefix = configuration.getTagPrefix();
         String tag = configuration.getTag();
-
-        // TODO: deal with tagPrefix and tag
-        return "";
+        logger.log(tag, body);
     }
+
+//    private String extractConcatTag() {
+//        String tagPrefix = configuration.getTagPrefix();
+//        String tag = configuration.getTag();
+//
+//        // TODO: deal with tagPrefix and tag
+//        return "";
+//    }
 }

@@ -80,12 +80,12 @@ public class FluentdEndpoint extends DefaultEndpoint {
         getConfiguration().setPort(port);
     }
 
-    public String getTagPrefix() {
-        return getConfiguration().getTagPrefix();
+    public String getTag() {
+        return getConfiguration().getTag();
     }
 
-    public void setTagPrefix(String tagPrefix) {
-        getConfiguration().setTagPrefix(tagPrefix);
+    public void setTag(String tag) {
+        getConfiguration().setTag(tag);
     }
 
     public synchronized FluentLogger getLogger() {
