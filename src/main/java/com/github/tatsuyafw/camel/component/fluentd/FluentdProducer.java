@@ -45,11 +45,4 @@ public class FluentdProducer extends DefaultProducer {
         logger.log(tag, body);
     }
 
-//    private String extractConcatTag() {
-//        String tagPrefix = configuration.getTagPrefix();
-//        String tag = configuration.getTag();
-//
-//        // TODO: deal with tagPrefix and tag
-//        return "";
-//    }
 }
