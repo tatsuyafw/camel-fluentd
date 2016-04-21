@@ -41,19 +41,19 @@ public class FluentdConfigurationTest extends CamelTestSupport {
     }
 
     @Test
-    public void testTagPrefix1() {
-        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname/tagPrefix", FluentdEndpoint.class);
+    public void testTag1() {
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname/tag.abc", FluentdEndpoint.class);
 
         assertNotNull(endpoint);
-        assertThat(endpoint.getTagPrefix(), is("tagPrefix"));
+        assertThat(endpoint.getTag(), is("tag.abc"));
     }
 
     @Test
-    public void testTagPrefix2() {
+    public void testTag2() {
         FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname/", FluentdEndpoint.class);
 
         assertNotNull(endpoint);
-        assertThat(endpoint.getTagPrefix(), is(""));
+        assertThat(endpoint.getTag(), is(""));
     }
 
 }

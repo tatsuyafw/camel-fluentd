@@ -33,8 +33,6 @@ public class FluentdConfiguration implements Cloneable {
     @UriPath @Metadata(defaultValue = "" + DEFAULT_PORT)
     private int port;
     @UriPath @Metadata
-    private String tagPrefix;
-    @UriParam
     private String tag;
 
     /**
@@ -55,15 +53,11 @@ public class FluentdConfiguration implements Cloneable {
         int port = uri.getPort() == -1 ? DEFAULT_PORT : uri.getPort();
         setPort(port);
 
-        String path = uri.getPath();
-        if ( path.isEmpty() || path.equals("/") ) {
-            setTagPrefix("");
-        } else {
-            // Delete leading '/' (slash)
-            String tagPrefix = path.substring(1);
-            System.out.println("[DEBUG]: tagPrefix: " + tagPrefix);
-            setTagPrefix(tagPrefix);
+        String tag = "";
+        if ( uri.getPath().trim().length() > 1 ) {
+            tag = uri.getPath().substring(1);
         }
+        setTag(tag);
     }
 
     public String getHost() {
@@ -80,14 +74,6 @@ public class FluentdConfiguration implements Cloneable {
 
     public void setPort(int port) {
         this.port = port;
-    }
-
-    public String getTagPrefix() {
-        return this.tagPrefix;
-    }
-
-    public void setTagPrefix(String tagPrefix) {
-        this.tagPrefix = tagPrefix;
     }
 
     public String getTag() {
