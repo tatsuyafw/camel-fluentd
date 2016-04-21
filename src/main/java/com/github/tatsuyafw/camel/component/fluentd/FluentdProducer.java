@@ -22,7 +22,6 @@ import org.fluentd.logger.FluentLogger;
 
 import java.util.Map;
 
-// [WIP]
 public class FluentdProducer extends DefaultProducer {
 
     private final FluentLogger logger;
@@ -38,8 +37,6 @@ public class FluentdProducer extends DefaultProducer {
     public void process(Exchange exchange) throws Exception {
         @SuppressWarnings("unchecked")
         Map<String, Object> body = exchange.getIn().getBody(Map.class);
-
-        // TODO: check body
 
         String tag = configuration.getTag();
         logger.log(tag, body);
