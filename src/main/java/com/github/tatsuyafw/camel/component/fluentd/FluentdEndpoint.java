@@ -96,4 +96,10 @@ public class FluentdEndpoint extends DefaultEndpoint {
         }
         return logger;
     }
+
+    @Override
+    public void doStop() throws Exception {
+        super.doStop();
+        logger.close();
+    }
 }
