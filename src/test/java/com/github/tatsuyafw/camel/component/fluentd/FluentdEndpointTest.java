@@ -28,8 +28,15 @@ public class FluentdEndpointTest extends CamelTestSupport {
 
     @Test
     public void testDefaults() {
-        Endpoint endpoint = context.getEndpoint("fluentd:hostname:port/tag");
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:port/tag", FluentdEndpoint.class);
         assertNotNull(endpoint);
+    }
+
+    @Test
+    public void testEndpointHasConfiguration() {
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:12345", FluentdEndpoint.class);
+
+        assertNotNull(endpoint.getConfiguration());
     }
 
 }
