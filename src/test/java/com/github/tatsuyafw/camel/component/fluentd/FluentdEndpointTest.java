@@ -17,6 +17,7 @@
 package com.github.tatsuyafw.camel.component.fluentd;
 
 
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.is;
 
@@ -29,14 +30,15 @@ public class FluentdEndpointTest extends CamelTestSupport {
     @Test
     public void testDefaults() {
         FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:port/tag", FluentdEndpoint.class);
-        assertNotNull(endpoint);
-    }
+
+        assertThat(endpoint, is(notNullValue()));
+        }
 
     @Test
     public void testEndpointHasConfiguration() {
         FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:12345", FluentdEndpoint.class);
 
-        assertNotNull(endpoint.getConfiguration());
+        assertThat(endpoint.getConfiguration(), is(notNullValue()));
     }
 
 }
