@@ -20,10 +20,8 @@ import org.apache.camel.Consumer;
 import org.apache.camel.Processor;
 import org.apache.camel.Producer;
 import org.apache.camel.impl.DefaultEndpoint;
-import org.apache.camel.spi.Metadata;
 import org.apache.camel.spi.UriEndpoint;
 import org.apache.camel.spi.UriParam;
-import org.apache.camel.spi.UriPath;
 import org.fluentd.logger.FluentLogger;
 
 /**
@@ -43,7 +41,7 @@ public class FluentdEndpoint extends DefaultEndpoint {
 
     @Override
     public Producer createProducer() throws Exception {
-        return new FluentdProducer(this, logger);
+        return new FluentdProducer(this, getLogger());
     }
 
     @Override
