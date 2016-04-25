@@ -17,13 +17,11 @@
 package com.github.tatsuyafw.camel.component.fluentd;
 
 
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
-import static org.hamcrest.CoreMatchers.is;
-
-import org.apache.camel.Endpoint;
 import org.apache.camel.test.junit4.CamelTestSupport;
+import org.fluentd.logger.FluentLogger;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.*;
 
 public class FluentdEndpointTest extends CamelTestSupport {
 
@@ -39,6 +37,14 @@ public class FluentdEndpointTest extends CamelTestSupport {
         FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:12345", FluentdEndpoint.class);
 
         assertThat(endpoint.getConfiguration(), is(notNullValue()));
+    }
+
+    @Test
+    public void testGetLoggerReturnsSameLogger() {
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:12345", FluentdEndpoint.class);
+
+        FluentLogger expected = endpoint.getLogger();
+        assertThat(endpoint.getLogger(), is(sameInstance(expected)));
     }
 
 }
