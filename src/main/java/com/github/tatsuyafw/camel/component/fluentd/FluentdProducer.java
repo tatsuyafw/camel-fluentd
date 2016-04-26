@@ -19,10 +19,14 @@ package com.github.tatsuyafw.camel.component.fluentd;
 import org.apache.camel.Exchange;
 import org.apache.camel.impl.DefaultProducer;
 import org.fluentd.logger.FluentLogger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
 public class FluentdProducer extends DefaultProducer {
+
+    private static final Logger LOG = LoggerFactory.getLogger(FluentdProducer.class);
 
     private final FluentLogger logger;
     private final FluentdConfiguration configuration;
@@ -37,6 +41,11 @@ public class FluentdProducer extends DefaultProducer {
     public void process(Exchange exchange) throws Exception {
         @SuppressWarnings("unchecked")
         Map<String, Object> body = exchange.getIn().getBody(Map.class);
+
+        if (body == null) {
+            LOG.info("Body is null, so do nothing");
+            return;
+        }
 
         String tag = configuration.getTag();
         logger.log(tag, body);
