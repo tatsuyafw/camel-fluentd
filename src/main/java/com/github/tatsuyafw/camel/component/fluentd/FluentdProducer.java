@@ -22,6 +22,7 @@ import org.fluentd.logger.FluentLogger;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class FluentdProducer extends DefaultProducer {
@@ -43,8 +44,7 @@ public class FluentdProducer extends DefaultProducer {
         Map<String, Object> body = exchange.getIn().getBody(Map.class);
 
         if (body == null) {
-            LOG.info("Body is null, so do nothing");
-            return;
+            body = new HashMap();
         }
 
         String tag = configuration.getTag();
