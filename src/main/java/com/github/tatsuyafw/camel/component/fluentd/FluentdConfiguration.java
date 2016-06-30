@@ -18,7 +18,6 @@ package com.github.tatsuyafw.camel.component.fluentd;
 
 import org.apache.camel.RuntimeCamelException;
 import org.apache.camel.spi.Metadata;
-import org.apache.camel.spi.UriParam;
 import org.apache.camel.spi.UriPath;
 
 import java.net.URI;
@@ -28,16 +27,19 @@ public class FluentdConfiguration implements Cloneable {
 
     public static final int DEFAULT_PORT = 24224;
 
-    @UriPath @Metadata(required = "true")
+    @UriPath
+    @Metadata(required = "true")
     private String host;
-    @UriPath @Metadata(defaultValue = "" + DEFAULT_PORT)
+    @UriPath
+    @Metadata(defaultValue = "" + DEFAULT_PORT)
     private int port;
-    @UriPath @Metadata
+    @UriPath
+    @Metadata
     private String tag;
 
     /**
-    * Returns a copy of this configuration
-    */
+     * Returns a copy of this configuration
+     */
     public FluentdConfiguration copy() {
         try {
             return (FluentdConfiguration) clone();
@@ -54,7 +56,7 @@ public class FluentdConfiguration implements Cloneable {
         setPort(port);
 
         String tag = "";
-        if ( uri.getPath().trim().length() > 1 ) {
+        if (uri.getPath().trim().length() > 1) {
             tag = uri.getPath().substring(1);
         }
         setTag(tag);

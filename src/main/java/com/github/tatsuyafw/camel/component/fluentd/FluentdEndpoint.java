@@ -25,7 +25,7 @@ import org.apache.camel.spi.UriParam;
 import org.fluentd.logger.FluentLogger;
 
 /**
- *  The fluentd component is used for interacting with Fluentd server.
+ * The fluentd component is used for interacting with Fluentd server.
  */
 @UriEndpoint(scheme = "fluentd", title = "Fluentd", syntax = "fluentd:hostname:port/tag", producerOnly = true, label = "monitoring")
 public class FluentdEndpoint extends DefaultEndpoint {
