@@ -25,7 +25,7 @@ public class FluentdConfigurationTest extends CamelTestSupport {
 
     @Test
     public void createEndpointWithMinimalConfiguration() {
-        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:12345", FluentdEndpoint.class);
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd://hostname:12345", FluentdEndpoint.class);
 
         assertThat(endpoint.getHost(), is("hostname"));
         assertThat(endpoint.getPort(), is(12345));
@@ -33,21 +33,21 @@ public class FluentdConfigurationTest extends CamelTestSupport {
 
     @Test
     public void defaultPortUsedWhenNotSpecified() {
-        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname", FluentdEndpoint.class);
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd://hostname", FluentdEndpoint.class);
 
         assertThat(endpoint.getPort(), is(FluentdConfiguration.DEFAULT_PORT));
     }
 
     @Test
     public void testTag1() {
-        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname/tag.abc", FluentdEndpoint.class);
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd://hostname/tag.abc", FluentdEndpoint.class);
 
         assertThat(endpoint.getTag(), is("tag.abc"));
     }
 
     @Test
     public void testTag2() {
-        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname/", FluentdEndpoint.class);
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd://hostname/", FluentdEndpoint.class);
 
         assertNotNull(endpoint);
         assertThat(endpoint.getTag(), is(""));

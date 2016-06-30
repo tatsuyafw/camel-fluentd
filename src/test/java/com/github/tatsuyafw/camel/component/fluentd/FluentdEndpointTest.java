@@ -27,21 +27,21 @@ public class FluentdEndpointTest extends CamelTestSupport {
 
     @Test
     public void testDefaults() {
-        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:port/tag", FluentdEndpoint.class);
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd://hostname:port/tag", FluentdEndpoint.class);
 
         assertThat(endpoint, is(notNullValue()));
     }
 
     @Test
     public void testEndpointHasConfiguration() {
-        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:12345", FluentdEndpoint.class);
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd://hostname:12345", FluentdEndpoint.class);
 
         assertThat(endpoint.getConfiguration(), is(notNullValue()));
     }
 
     @Test
     public void testGetLoggerReturnsSameLogger() {
-        FluentdEndpoint endpoint = context.getEndpoint("fluentd:hostname:12345", FluentdEndpoint.class);
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd://hostname:12345", FluentdEndpoint.class);
 
         FluentLogger expected = endpoint.getLogger();
         assertThat(endpoint.getLogger(), is(sameInstance(expected)));
