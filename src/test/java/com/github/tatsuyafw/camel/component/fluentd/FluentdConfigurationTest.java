@@ -20,6 +20,8 @@ import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.hamcrest.CoreMatchers.sameInstance;
 
 public class FluentdConfigurationTest extends CamelTestSupport {
 
@@ -51,6 +53,15 @@ public class FluentdConfigurationTest extends CamelTestSupport {
 
         assertNotNull(endpoint);
         assertThat(endpoint.getTag(), is(""));
+    }
+
+    @Test
+    public void testConfigurationCopy() {
+        FluentdEndpoint endpoint = context.getEndpoint("fluentd://hostname", FluentdEndpoint.class);
+        FluentdConfiguration config1 = endpoint.getConfiguration();
+        FluentdConfiguration config2 = config1.copy();
+
+        assertThat(config1, is(not(sameInstance(config2))));
     }
 
 }
