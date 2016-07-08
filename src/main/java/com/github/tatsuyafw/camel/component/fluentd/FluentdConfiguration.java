@@ -88,6 +88,8 @@ public class FluentdConfiguration implements Cloneable {
 
     @Override
     public String toString() {
-        return "FluentdConfiguration[host=" + host + ":" + port + "]";
+        return "FluentdConfiguration[" +
+                "host=" + host + ":" + port
+                + ", tag=" + tag + "]";
     }
 }
