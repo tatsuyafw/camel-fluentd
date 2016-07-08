@@ -55,6 +55,14 @@ public class FluentdConfigurationTest extends CamelTestSupport {
         assertThat(endpoint.getTag(), is(""));
     }
 
+        @Test
+        public void testTag3() {
+            FluentdEndpoint endpoint = context.getEndpoint("fluentd://hostname?tag=abc", FluentdEndpoint.class);
+
+            assertNotNull(endpoint);
+            assertThat(endpoint.getTag(), is("abc"));
+        }
+
     @Test
     public void testConfigurationCopy() {
         FluentdEndpoint endpoint = context.getEndpoint("fluentd://hostname", FluentdEndpoint.class);
