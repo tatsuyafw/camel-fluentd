@@ -1,6 +1,4 @@
-# camel-fluentd
-
-[![Build Status][travis-image]][travis-url]
+# camel-fluentd [![Build Status][travis-image]][travis-url]
 
 ## Usage
 - WIP...
