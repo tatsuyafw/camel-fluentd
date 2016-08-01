@@ -24,7 +24,6 @@ import org.apache.camel.util.ObjectHelper;
 import java.net.URI;
 import java.util.Map;
 
-// [WIP]
 public class FluentdComponent extends UriEndpointComponent {
 
     private FluentdConfiguration configuration;
