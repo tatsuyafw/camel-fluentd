@@ -1,4 +1,4 @@
-package com.github.tatsuyafw.camel.component.fluentd;
+package com.tatsuyafw.camel.component.fluentd;
 
 import org.apache.camel.builder.RouteBuilder;
 import org.apache.camel.component.mock.MockEndpoint;

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.github.tatsuyafw.camel.component.fluentd;
+package com.tatsuyafw.camel.component.fluentd;
 
 import org.apache.camel.test.junit4.CamelTestSupport;
 import org.junit.Test;

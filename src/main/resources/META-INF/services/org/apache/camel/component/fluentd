@@ -15,4 +15,4 @@
 # limitations under the License.
 #
 
-class=com.github.tatsuyafw.camel.component.fluentd.FluentdComponent
+class=com.tatsuyafw.camel.component.fluentd.FluentdComponent
