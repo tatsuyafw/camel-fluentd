@@ -8,6 +8,33 @@
     <version>2.17.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
+    <name>Camel :: Flunetd</name>
+    <description>Camel Flunetd support</description>
+    <url>https://github.com/tatsuyafw/camel-fluentd</url>
+    <inceptionYear>2016</inceptionYear>
+    <licenses>
+      <license>
+        <name>Apache License, Version 2.0</name>
+        <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        <distribution>repo</distribution>
+      </license>
+    </licenses>
+
+    <issueManagement>
+      <system>GitHub</system>
+      <url>https://github.com/tatsuyafw/camel-fluentd/issues</url>
+    </issueManagement>
+    <ciManagement>
+      <system>Travis-CI</system>
+      <url>https://travis-ci.org/tatsuyafw/camel-fluentd</url>
+    </ciManagement>
+    <scm>
+      <url>https://github.com/tatsuyafw/camel-fluentd</url>
+      <connection>scm:git:git@github.com:tatsuyafw/camel-flunetd.git</connection>
+      <developerConnection>scm:git:git@github.com:tatsuyafw/camel-flunetd.git</developerConnection>
+      <tag>HEAD</tag>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
