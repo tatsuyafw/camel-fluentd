@@ -65,6 +65,11 @@ public static void main(String[] args) throws Exception {
 }
 ```
 
+## License
+
+Apache License, Version 2.0
+
+
 [travis-image]: https://img.shields.io/travis/tatsuyafw/camel-fluentd.svg
 [travis-url]: https://travis-ci.org/tatsuyafw/camel-fluentd
 [maven-central-image]: https://maven-badges.herokuapp.com/maven-central/com.tatsuyafw/camel-fluentd/badge.svg
