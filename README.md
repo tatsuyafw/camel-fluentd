@@ -1,9 +1,27 @@
-# camel-fluentd [![Build Status][travis-image]][travis-url]
+# camel-fluentd
+
+[![Build Status][travis-image]][travis-url]
+[![Maven Central][maven-central-image]][maven-central-url]
 
 ## Usage
 
 ### Dependency
-- T.B.D.
+
+Gradle:
+
+```
+compile 'com.tatsuyafw:camel-fluentd:x.y.z'
+```
+
+Maven:
+
+```
+<dependency>
+    <groupId>com.tatsuyafw</groupId>
+    <artifactId>camel-fluentd</artifactId>
+    <version>x.y.z</version>
+</dependency>
+```
 
 ### URI format
 
@@ -49,3 +67,5 @@ public static void main(String[] args) throws Exception {
 
 [travis-image]: https://img.shields.io/travis/tatsuyafw/camel-fluentd.svg
 [travis-url]: https://travis-ci.org/tatsuyafw/camel-fluentd
+[maven-central-image]: https://maven-badges.herokuapp.com/maven-central/com.tatsuyafw/camel-fluentd/badge.svg
+[maven-central-url]: https://maven-badges.herokuapp.com/maven-central/com.tatsuyafw/camel-fluentd
