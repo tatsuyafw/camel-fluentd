@@ -8,8 +8,8 @@
     <version>2.18.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>Camel :: Flunetd</name>
-    <description>Camel Flunetd support</description>
+    <name>Camel :: Fluentd</name>
+    <description>Camel Fluentd support</description>
     <url>https://github.com/tatsuyafw/camel-fluentd</url>
     <inceptionYear>2016</inceptionYear>
     <licenses>
@@ -38,8 +38,8 @@
     </ciManagement>
     <scm>
       <url>https://github.com/tatsuyafw/camel-fluentd</url>
-      <connection>scm:git:git@github.com:tatsuyafw/camel-flunetd.git</connection>
-      <developerConnection>scm:git:git@github.com:tatsuyafw/camel-flunetd.git</developerConnection>
+      <connection>scm:git:git@github.com:tatsuyafw/camel-fluentd.git</connection>
+      <developerConnection>scm:git:git@github.com:tatsuyafw/camel-fluentd.git</developerConnection>
       <tag>HEAD</tag>
     </scm>
 
