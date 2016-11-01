@@ -38,7 +38,7 @@
     </ciManagement>
     <scm>
       <url>https://github.com/tatsuyafw/camel-fluentd</url>
-      <connection>scm:git:git@github.com:tatsuyafw/camel-fluentd.git</connection>
+      <connection>scm:git:git://github.com/tatsuyafw/camel-fluentd.git</connection>
       <developerConnection>scm:git:git@github.com:tatsuyafw/camel-fluentd.git</developerConnection>
       <tag>HEAD</tag>
     </scm>
