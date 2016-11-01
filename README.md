@@ -70,7 +70,7 @@ public static void main(String[] args) throws Exception {
 Apache License, Version 2.0
 
 
-[travis-image]: https://img.shields.io/travis/tatsuyafw/camel-fluentd.svg
+[travis-image]: https://travis-ci.org/tatsuyafw/camel-fluentd.svg?branch=master
 [travis-url]: https://travis-ci.org/tatsuyafw/camel-fluentd
 [maven-central-image]: https://maven-badges.herokuapp.com/maven-central/com.tatsuyafw/camel-fluentd/badge.svg
 [maven-central-url]: https://maven-badges.herokuapp.com/maven-central/com.tatsuyafw/camel-fluentd
