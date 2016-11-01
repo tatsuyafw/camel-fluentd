@@ -39,6 +39,8 @@ public class FluentdConfiguration implements Cloneable {
 
     /**
      * Returns a copy of this configuration
+     *
+     * @return a copied {@code FluentdConfiguration}.
      */
     public FluentdConfiguration copy() {
         try {
